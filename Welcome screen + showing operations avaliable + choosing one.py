@@ -26,11 +26,14 @@ print('4. Volume Of A Shape ')
 print('5. Basic Mathematic Calculations ')
 enter_line()
 
-desired_calculation = input('What calculation would you like to complete from the list/s? ')
-#desired_calculation = int(desired_calculation)
-enter_line()
+
+#AFTER
 
 while True:
+    desired_calculation = input('What calculation would you like to complete from the list/s? ')
+    #desired_calculation = int(desired_calculation)
+    enter_line()
+
     if desired_calculation == '1':
         print('hello')
         break                               #'break' stops the 'continue' and prevents i from repeating infinitily
@@ -49,23 +52,6 @@ while True:
     else:
         print('Invalid input, try a number between 1 and 5')
         enter_line()
-        desired_calculation = input('What calculation would you like to complete from the list/s? ')
-        enter_line()
         continue
 
 
-#second if works for second chance valid answers but u stil can't enter 2 invalid answers to have athird input... There must be another way to do it, also with less code.
-    #        if desired_calculation == '1':
-   #     print('hello')
-   # elif desired_calculation == '2':
- #       print('bye')
-   # elif desired_calculation == '3':
- #       print('place')
-  #  elif desired_calculation == '4':
-   #     print('holder')
-  #  elif desired_calculation == '5':
- #       print('placeholder')
-
-#while '5' < desired_calculation and desired_calculation < '1':
- #           print('Invalid input, try a number between 1 and 5')
-  #          desired_calculation = input('What calculation would you like to complete from the list/s? ')
