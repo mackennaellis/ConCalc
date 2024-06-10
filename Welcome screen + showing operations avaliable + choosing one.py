@@ -60,7 +60,7 @@ while True:
 
         #needed math imports:
         math.pi == math.pi
-        
+
 #Uses while true so that the continue statement and break can work
         while True:
             what_shape = input("What shape's volume would you like to calculate from the list? ")
@@ -96,7 +96,7 @@ while True:
                 enter_line()
                 print('\033[1m' + 'Cube volume selected: ')
                 enter_line()
-                measurement = float(input('\033[0m' + 'What is the side measurement of the cube? '))
+                measurement = float(input('\033[0m' + 'What is the side length of the cube? '))
                 enter_line()
     
                 print('☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
