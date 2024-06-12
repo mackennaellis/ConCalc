@@ -92,47 +92,49 @@ while True:
         enter_line()
         print('☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
         break
-    elif what_shape == '4': #this one for next lesson!!!
+    elif what_shape == '4':
         print('☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
         enter_line()       
         print('\033[1m' + 'Cylinder (Surface Area) selected: ')
         enter_line()
-        height = float(input('\033[0m' + 'What is the height of the cone? '))   #start on this line
+        radius = float(input('\033[0m' + 'What is the radius of the cylinder? ')) 
         enter_line()
-        radius = float(input('What is the radius of the cone? '))
+        height = float(input('What is the height of the cylinder? '))
         enter_line()
         print('☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
         os.system('cls')
         print('☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
         enter_line()
-        print('\033[1m' + 'Cone volume selected: ')
+        print('\033[1m' + 'Cylinder (Surface Area) selected: ')
         enter_line()
         
-        cone_volume = math.pi * (radius ** 2) * (height/3)
-        cone_volume_rounded = round(cone_volume, 3)
+        cylinder_area = (2 * math.pi * radius * height) + (2 * math.pi * (radius **2))
+        cylinder_area_rounded = round(cylinder_area, 3)
 
-        print(f'\033[0m' + "Your cones's volume is: " '\033[1m' f'{cone_volume_rounded}')
+        print(f'\033[0m' + "Your cylinder's surface area is: " '\033[1m' f'{cylinder_area_rounded}')
         enter_line()
         print('☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
         break
     elif what_shape == '5':
         print('☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
         enter_line()
-        print('\033[1m' + 'Sphere volume selected: ')
+        print('\033[1m' + 'Triangle area selected: ')
         enter_line()
-        radius = float(input('What is the radius of the sphere? '))
+        height = float(input('\033[0m' +'What is the height of the triangle? '))
+        enter_line()
+        base = float(input("What is the length of the triangle's base? "))
         enter_line()
         print('☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
         os.system('cls')
         print('☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
         enter_line()
-        print('\033[1m' + 'Sphere volume selected: ')
+        print('\033[1m' + 'Triangle area selected: ')
         enter_line()
         
-        sphere_volume = (4/3) * math.pi * (radius ** 3)
-        sphere_volume_rounded = round(sphere_volume, 3)
+        triangle_area = (height * base)/2
+        triangle_area_rounded = round(triangle_area, 3)
 
-        print(f'\033[0m' + "Your sphere's volume is: " '\033[1m' f'{sphere_volume_rounded}')
+        print(f'\033[0m' + "Your triangle's area is: " '\033[1m' f'{triangle_area_rounded}')
         enter_line()
         print('☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
         break
