@@ -34,14 +34,18 @@ while True:
     desired_calculation = input('What calculation would you like to complete from the list/s? ')
     #desired_calculation = int(desired_calculation)
     enter_line()
+    os.system('cls')
 
     if desired_calculation == '1':
+        os.system('cls')
         print('hello')
         break                               #'break' stops the 'continue' and prevents i from repeating infinitily
     elif desired_calculation == '2':
+        os.system('cls')
         print('bye')
         break
     elif desired_calculation == '3':        #Area!
+        os.system('cls')
         print('☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
         enter_line()
 
@@ -183,6 +187,7 @@ while True:
                 continue
                 break
     elif desired_calculation == '4':        #Volume!
+        os.system('cls')
         print('☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
         enter_line()
 #Lists avaliable volumes
@@ -202,7 +207,7 @@ while True:
 #Uses while true so that the continue statement and break can work
         while True:
             what_shape = input("What shape's volume would you like to calculate from the list? ")
-            os.system('cls')        #Clwars the terminal as the code is 'playing'
+            os.system('cls')        #Clears the terminal as the code is 'playing'
             if what_shape == '1':
                 print('☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
                 enter_line()
