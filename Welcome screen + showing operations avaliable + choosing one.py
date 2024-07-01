@@ -25,26 +25,49 @@ print('\033[1m' + 'Simple: ')
 print('\033[0m' + '3. Area Of A Shape ')
 print('4. Volume Of A Shape ')
 print('5. Basic Mathematic Calculations ')
+
+print('6. Exit ')
 enter_line()
 
+def calc_decking():     #DECKING OPTION (1) EXAMPLE/TEMPLATEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+    print('☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
+    answer1 = input('What is the length? ')
+    answer1=int(answer1)
+    sleep1 = input('what is the width? ')
+    sleep1=int(sleep1)
+    decking_result = answer1*sleep1  
+    return decking_result
+
+def calc_stud():        #STUD OPTION (2)
+    print('☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
+    answer1 = input('What is the length? ')
+    answer1=int(answer1)
+    sleep1 = input('what is the width? ')
+    sleep1=int(sleep1)
+    stud_result = answer1*sleep1  
+    return stud_result
 
 
+desired_calculation = 1     #JUST SETTING IT AS IT'LL BE REPLACED LATER
 
-while True:
-    desired_calculation = input('What calculation would you like to complete from the list/s? ')
-    #desired_calculation = int(desired_calculation)
+desired_calculation = input('What calculation would you like to complete from the list/s? ')
+desired_calculation = int(desired_calculation)
+
+while desired_calculation != 6:     #as long as it isn't '6' it does this
     enter_line()
     os.system('cls')
 
-    if desired_calculation == '1':
+    if desired_calculation == 1:  
         os.system('cls')
-        print('hello')
+        decking_result = calc_decking()
+        print(f'{decking_result}')
         break                               #'break' stops the 'continue' and prevents i from repeating infinitily
-    elif desired_calculation == '2':
+    elif desired_calculation == 2:
         os.system('cls')
-        print('bye')
+        stud_result = calc_stud()
+        print(f'{stud_result}')
         break
-    elif desired_calculation == '3':        #Area!
+    elif desired_calculation == 3:        #Area!
         os.system('cls')
         print('☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
         enter_line()
@@ -57,13 +80,15 @@ while True:
         print('3. Circle')
         print('4. Cylinder (Surface Area)')
         print('5. Triangle')
+        print('6. Exit')
         enter_line()
 
+        what_shape = input("What shape's area would you like to calculate from the list? ")
+        
         #needed math imports:
         math.pi == math.pi
 
-        while True:
-            what_shape = input("What shape's area would you like to calculate from the list? ")
+        while what_shape != 6:
             os.system('cls')
             if what_shape == '1':
                 print('☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
@@ -334,9 +359,10 @@ while True:
     elif desired_calculation == '5':
         print('placeholder')
         break
-    else:
-        print('Invalid input, try a number between 1 and 5')
-        enter_line()
-        continue
+
+while desired_calculation > 0:
+    print('Invalid input, try a number between 1 and 5')
+    enter_line()
+    desired_calculation = input('What calculation would you like to complete from the list/s? ')
 
 

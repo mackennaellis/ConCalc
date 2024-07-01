@@ -12,11 +12,11 @@ if another_calc == 'yes':
     print('CONINUE BUT FOR NOW PLACEHOLDERRRRRRR')
 elif another_calc == 'no':
     os.system('cls')
-    print('★ ° . *　　　°　.　°☆ 　. * ● ¸ . 　　　★ 　° :. ★　 * • ○ ° ★ .　 * 　.　 　　　　　. ° 　. ● . ★ ° . *　　　°　.　°☆')
+    print('★ ° . *　　　°　.　°☆ 　. * ● ¸ . 　　　★ 　° :. ★　 * • ○ ° ★ .　 * 　.　. ° 　. ● . ★ ° . *　　　°　.　°☆')
     enter_line()
     print('You will be missed..')
     enter_line()
-    print('    ／＞　  　フ')   #Cat from "fonts" mobile app
+    print('    ／＞　  　フ')   #Cat and stars from "fonts" mobile app
     print('    | 　_　 _ |')
     print('   ／` ミ＿xノ')
     print('  /　　　 　 |')
@@ -25,5 +25,5 @@ elif another_calc == 'no':
     enter_line()
     print('Thank you for using ConCalc!! Goodluck on your project/s and return soon!')
     enter_line()
-    print('★ ° . *　　　°　.　°☆ 　. * ● ¸ . 　　　★ 　° :. ★　 * • ○ ° ★ .　 * 　.　 　　　　　. ° 　. ● . ★ ° . *　　　°　.　°☆')
+    print('★ ° . *　　　°　.　°☆ 　. * ● ¸ . 　　　★ 　° :. ★　 * • ○ ° ★ .　 * 　.　. ° 　. ● . ★ ° . *　　　°　.　°☆')
     print('BREAK BUT FOR NOW PLACEHOLDERRRRRRR')
