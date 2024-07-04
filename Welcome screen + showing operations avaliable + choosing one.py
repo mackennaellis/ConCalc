@@ -1,6 +1,35 @@
 import math
 import os
 
+#Main Program
+def main_program_1st_display():
+    print('☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
+    print(' ')
+
+    print('Welcome to the program!!')
+    print(' ')
+
+    print('How to use the program: You’ll notice that all items in the lists shown are numbered, when asked for what you’d like to complete please enter the corresponding number to the operation you’d like.')
+    print(' ')
+    print('Operations avaliable: ')
+    print(' ')
+
+    print('\033[1m' + 'Complex: ')
+    print('\033[0m' + '1. Linear Metres Of Decking Required ')
+    print('2. Stud Length (/Raked Wall) ')
+    print(' ')
+
+    print('\033[1m' + 'Simple: ')
+    print('\033[0m' + '3. Area Of A Shape ')
+    print('4. Volume Of A Shape ')
+    print('5. Basic Mathematic Calculations ')
+
+    print('6. Exit ')
+    print(' ')
+
+    desired_calculation = int(input('What calculation would you like to complete from the list/s? '))
+
+    return desired_calculation
 
 def calc_decking():     #DECKING OPTION (1) EXAMPLE/TEMPLATEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
     print('☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
@@ -62,7 +91,7 @@ def calc_circle_area():
     print(' ')
     print('\033[1m' + 'Circle area selected: ')
     print(' ')
-    radius = float(input('What is the radius of the circle? '))
+    radius = float(input(f'\033[0m' + 'What is the radius of the circle? '))
     print(' ')
     print('☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
     os.system('cls')
@@ -131,33 +160,9 @@ def goodbye_exit_screen():
     print(' ')
     print('★ ° . *　　　°　.　°☆ 　. * ● ¸ . 　　　★ 　° :. ★　 * • ○ ° ★ .　 * 　.　. ° 　. ● . ★ ° . *　　　°　.　°☆')
 
-#Main Program
-print('☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
-print(' ')
 
-print('Welcome to the program!!')
-print(' ')
+desired_calculation = main_program_1st_display()
 
-print('How to use the program: You’ll notice that all items in the lists shown are numbered, when asked for what you’d like to complete please enter the corresponding number to the operation you’d like.')
-print(' ')
-print('Operations avaliable: ')
-print(' ')
-
-print('\033[1m' + 'Complex: ')
-print('\033[0m' + '1. Linear Metres Of Decking Required ')
-print('2. Stud Length (/Raked Wall) ')
-print(' ')
-
-print('\033[1m' + 'Simple: ')
-print('\033[0m' + '3. Area Of A Shape ')
-print('4. Volume Of A Shape ')
-print('5. Basic Mathematic Calculations ')
-
-print('6. Exit ')
-print(' ')
-
-desired_calculation = input('What calculation would you like to complete from the list/s? ')
-desired_calculation = int(desired_calculation)
 while desired_calculation != 6:     #as long as it isn't '6' it does this
     print(' ')
     os.system('cls')
@@ -191,9 +196,10 @@ while desired_calculation != 6:     #as long as it isn't '6' it does this
 
         what_shape = input("What shape's area would you like to calculate from the list? ")
         what_shape = int(what_shape)
-        
+        os.system('cls')
+
         #invalid ans        WORKS
-        while what_shape < 1:
+        while what_shape < 1 and what_shape >= 7:
             print('☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
             print(' ')
             print('Invalid input, try a number between 1 and 5')
@@ -201,25 +207,25 @@ while desired_calculation != 6:     #as long as it isn't '6' it does this
             what_shape = input("What shape's area would you like to calculate from the list? ")
             what_shape = int(what_shape)
 
-        #BUG FROM HERE SOMEWHERE?!?!!? 
-            
         #needed math imports:
         math.pi == math.pi
 
         #while loop for 'area' option (SUB OPTIONS OF MAIN WHILE) (nested?!?!)
-        while what_shape != 6:
-            os.system('cls')
+        while what_shape <= 6 and what_shape >= 1:
             #rectangle
-            if what_shape == '1':
+            if what_shape == 1:
 
                 rectangle_area_rounded = calc_rectangle_area()
         
                 print(f'\033[0m' + "Your rectangle's area is: " '\033[1m' f'{rectangle_area_rounded}')
                 print(' ')
                 print('☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
-                
+                print(' ')
+                cont=input("Press ANY KEY to continue back to main screen")
+                print('\033[0m')
+                os.system('cls')
             #square                           
-            elif what_shape == '2':
+            elif what_shape == 2:
                 
                 square_area_rounded = calc_square_area()
 
@@ -227,43 +233,45 @@ while desired_calculation != 6:     #as long as it isn't '6' it does this
                 print(' ')
                 print('☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
                 print(' ')
+                cont=input("Press ANY KEY to continue")
             #circle    
-            elif what_shape == '3':
+            elif what_shape == 3:
                 
                 circle_area_rounded = calc_circle_area()
 
                 print(f'\033[0m' + "Your circle's area is: " '\033[1m' f'{circle_area_rounded}')
                 print(' ')
                 print('☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
-
+                print(' ')
+                cont=input("Press ANY KEY to continue")
             #cylinder    
-            elif what_shape == '4':
+            elif what_shape == 4:
                 
                 cylinder_area_rounded = calc_cylinder_area()
 
                 print(f'\033[0m' + "Your cylinder's surface area is: " '\033[1m' f'{cylinder_area_rounded}')
                 print(' ')
                 print('☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
-
+                print(' ')
+                cont=input("Press ANY KEY to continue")
             #triagle    
-            elif what_shape == '5':
+            elif what_shape == 5:
                
                 triangle_area_rounded = calc_triangle_area()
 
                 print(f'\033[0m' + "Your triangle's area is: " '\033[1m' f'{triangle_area_rounded}')
                 print(' ')
                 print('☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
-            
-        while what_shape == 6: #works
-            os.system('cls')
-            print('★ ° . *　　　°　.　°☆ 　. * ● ¸ . 　　　★ 　° :. ★　 * • ○ ° ★ .　 * 　.　 . ° 　. ● . ★ ° . *　　　°　.　°☆')
-            print(' ')
-            another_calc = input('Would you like to complete another operation? ')
-            print(' ')
-            if another_calc == 'yes':
-                print('CONINUE BUT FOR NOW PLACEHOLDERRRRRRR')
-            elif another_calc == 'no':
+                print(' ')
+                cont=input("Press ANY KEY to continue")           
+            #exit
+            elif what_shape == 6:  #works
+                os.system('cls')
                 goodbye_exit_screen()
+                print(' ')
+                cont=input("Press ANY KEY to continue")
+
+            desired_calculation = main_program_1st_display()    #works but the desired calculation goes to 'what_shape' and keeps within this loop, need to fix somehow..
 
 
     elif desired_calculation == '4':        #Volume!
