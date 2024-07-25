@@ -160,6 +160,64 @@ def calc_triangle_area():
     triangle_area_rounded = round(triangle_area, 3)
     return triangle_area_rounded
 
+#VOLUMEEE
+def calc_cuboid_volume():
+      print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+                  f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+                  f'☲☲☲☲☲☲☲☲☲☲☲')
+      print(' ')
+      print('\033[1m' + 'Cuboid volume selected: ')
+      print(' ')
+      height = float(input(f'\033[0m' + 'What is the height of the '
+                              f'cuboid? ')) 
+      #'float' allows for decimals as builders work to decimals 
+
+      print(' ')
+      width = float(input('What is the width of the cuboid? '))
+      print(' ')
+      depth = float(input('What is the depth of the cuboid? '))
+      print(' ')
+      print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+      f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+      f'☲☲☲☲☲☲☲☲☲☲☲')
+      os.system('cls')
+      print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+      f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+      f'☲☲☲☲☲☲☲☲☲☲☲')
+      print(' ')
+      print('\033[1m' + 'Cuboid volume selected: ')
+      print(' ')
+
+      cuboid_volume = height * width * depth
+      cuboid_volume_rounded = round(cuboid_volume, 3)
+      return cuboid_volume_rounded
+def calc_cube_volume():
+      print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+                  f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+                  f'☲☲☲☲☲☲☲☲☲☲☲')
+      print(' ')
+      print('\033[1m' + 'Cube volume selected: ')
+      print(' ')
+      measurement = float(input(f'\033[0m' + 'What is the side length'
+                              f' of the cube? '))
+      print(' ')
+
+      print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+      f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+      f'☲☲☲☲☲☲☲☲☲☲☲')
+      os.system('cls')
+      print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+      f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+      f'☲☲☲☲☲☲☲☲☲☲☲')
+      print(' ')
+      print('\033[1m' + 'Cube volume selected: ')
+      print(' ')
+
+      cube_volume = measurement * 3
+      cube_volume_rounded = round(cube_volume, 3)
+      return cube_volume_rounded
+
+
 #exit/goodbye ("6. Exit")
 def goodbye_exit_screen():
     os.system('cls')
@@ -188,10 +246,12 @@ while desired_calculation != 6:     #as long as it isn't '6' it does this
     print(' ')
     os.system('cls')
 
-    if desired_calculation == 1:  #works
+    if desired_calculation == 1:  #works but ofc needs work INCOMPLETE
         os.system('cls')
         decking_result = calc_decking()
-        print(f'{decking_result}')                               
+        print(f'{decking_result}')
+        print(' ')
+        cont=input("Press ENTER to continue")                               
 
     elif desired_calculation == 2:  #works
         os.system('cls')
@@ -214,7 +274,7 @@ while desired_calculation != 6:     #as long as it isn't '6' it does this
         print('3. Circle')
         print('4. Cylinder (Surface Area)')
         print('5. Triangle')
-        print('6. Exit')
+        print('6. Back to main menu')
         print(' ')
 
         what_shape = input(f"What shape's area would you like to calculate from"
@@ -266,7 +326,7 @@ while desired_calculation != 6:     #as long as it isn't '6' it does this
                   f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
                   f'☲☲☲☲☲☲☲☲☲☲☲')
                 print(' ')
-                cont=input("Press ENTER to continue")
+                cont=input("Press ENTER to continue back to main screen")
             #circle    
             elif what_shape == 3:
                 
@@ -279,7 +339,127 @@ while desired_calculation != 6:     #as long as it isn't '6' it does this
                   f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
                   f'☲☲☲☲☲☲☲☲☲☲☲')
                 print(' ')
-                cont=input("Press ENTER to continue")
+                cont=input("Press ENTER to continue back to main screen")
+            #cylinder    
+            elif what_shape == 4:
+                
+                cylinder_area_rounded = calc_cylinder_area()
+
+                print(f'\033[0m'+"Your cylinder's surface area is: "+'\033[1m'+ 
+                      f'{cylinder_area_rounded}')
+                print(' ')
+                print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+                  f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+                  f'☲☲☲☲☲☲☲☲☲☲☲')
+                print(' ')
+                cont=input("Press ENTER to continue back to main screen")
+            #triagle    
+            elif what_shape == 5:
+               
+                triangle_area_rounded = calc_triangle_area()
+
+                print(f'\033[0m' + "Your triangle's area is: " + '\033[1m' + 
+                      f'{triangle_area_rounded}')
+                print(' ')
+                print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+                  f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+                  f'☲☲☲☲☲☲☲☲☲☲☲')
+                print(' ')
+                cont=input("Press ENTER to continue back to main screen")           
+            #exit
+            elif what_shape == 6:
+                  desired_calculation = main_program_1st_display() #(1)
+                  break
+            break
+
+
+#desired_calculation = main_program_1st_display()    
+            #works but the desired calculation goes to 'what_shape' and keeps 
+            #within this loop, need to fix somehow..
+
+
+    elif desired_calculation == 4:        #Volume!          #ATM IN POCESS OF CHANGING TO VOLUME FROM COPY AND PASTED AREA.
+        os.system('cls')
+        #display/list of operations
+        print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+                  f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+                  f'☲☲☲☲☲☲☲☲☲☲☲')
+        print(' ')
+        #Lists avaliable volumes
+        print('\033[1m' + 'Shape volumes avaliable: ')
+        print(' ')
+
+        print('\033[0m' + '1. Cuboid')
+        print('2. Cube')
+        print('3. Cylinder')
+        print('4. Cone')
+        print('5. Sphere')
+        print('6. Back to main menu')
+        print(' ')
+
+        what_shape = input(f"What shape's volume would you like to calculate from"
+                           f" the list? ")
+        what_shape = int(what_shape)
+
+        #invalid ans        WORKS
+        while (what_shape < 1) or (what_shape >= 7):
+            print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+                  f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+                  f'☲☲☲☲☲☲☲☲')
+            print(' ')
+            print('Invalid input, try a number between 1 and 6')
+            print(' ')
+            what_shape = input(f"What shape's volume would you like to calculate "
+                               f"from the list? ")
+            what_shape = int(what_shape)
+
+
+        #needed math imports:
+        math.pi == math.pi
+
+        #while loop for 'volume' option (SUB OPTIONS OF MAIN WHILE) (nested?!?!)
+        while what_shape <= 6 and what_shape >= 1:
+            #CUBOID                                                             
+            if what_shape == 1:
+
+                cuboid_volume_rounded = calc_cuboid_volume()
+        
+                print(f'\033[0m' + "Your cuboid's volume is: "+'\033[1m'+
+                      f'{cuboid_volume_rounded}')
+                print(' ')
+                print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+                  f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+                  f'☲☲☲☲☲☲☲☲☲☲☲')
+                print(' ')
+                cont=input("Press ENTER to continue back to main screen")
+                print('\033[0m')
+                os.system('cls')
+            #CUBE                           
+            elif what_shape == 2:
+                
+                cube_volume_rounded = calc_cube_volume()
+
+                print(f'\033[0m' + "Your cube's volume is: "+'\033[1m'+
+                      f'{cube_volume_rounded}')
+                print(' ')
+                print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+                  f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+                  f'☲☲☲☲☲☲☲☲☲☲☲')
+                print(' ')
+                cont=input("Press ENTER to continue back to main screen")
+            #circle    
+            elif what_shape == 3:
+                
+                circle_area_rounded = calc_circle_area()
+
+                print(f'\033[0m' + "Your circle's area is: " + '\033[1m' +
+                      f'{circle_area_rounded}')
+                print(' ')
+                print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+                  f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+                  f'☲☲☲☲☲☲☲☲☲☲☲')
+                print(' ')
+                cont=input("Press ENTER to continue back to main screen")
             #cylinder    
             elif what_shape == 4:
                 
@@ -305,21 +485,13 @@ while desired_calculation != 6:     #as long as it isn't '6' it does this
                   f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
                   f'☲☲☲☲☲☲☲☲☲☲☲')
                 print(' ')
-                cont=input("Press ENTER to continue")           
+                cont=input("Press ENTER to continue back to main screen")           
             #exit
-            elif what_shape == 6:  #works
-                os.system('cls')
-                goodbye_exit_screen()
-                print(' ')
-                cont=input("Press ENTER to continue")
-                  
-            #desired_calculation = main_program_1st_display()    
-            #works but the desired calculation goes to 'what_shape' and keeps 
-            #within this loop, need to fix somehow..
-
-
-    elif desired_calculation == 4:        #Volume!
-        os.system('cls')
+            elif what_shape == 6:
+                  desired_calculation = main_program_1st_display() #(1)
+                  break
+            break
+        '''os.system('cls')
         print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
                   f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
                   f'☲☲☲☲☲☲☲☲☲☲☲')
@@ -371,7 +543,7 @@ while desired_calculation != 6:     #as long as it isn't '6' it does this
                 print(' ')
         
                 cuboid_volume = height * width * depth
-                cuboid_volume_rounded = round(cuboid_volume, 3)     
+                cuboid_volume_rounded = round(cuboid_volume, 3)                           
                 #rounds the answer to 3 decimal places for efficiency and makes 
                 #it easier for reading
 
@@ -382,7 +554,7 @@ while desired_calculation != 6:     #as long as it isn't '6' it does this
                   f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
                   f'☲☲☲☲☲☲☲☲☲☲☲')
 
-                break
+                break                                                                                                  
                 #'break' stops the 'continue' and prevents it from repeating 
                 #infinitily
 
@@ -409,7 +581,7 @@ while desired_calculation != 6:     #as long as it isn't '6' it does this
                 print(' ')
     
                 cube_volume = measurement * 3
-                cube_volume_rounded = round(cube_volume, 3)
+                cube_volume_rounded = round(cube_volume, 3)                         #FINISH FOR CUBE FUNC 
 
                 print(f'\033[0m' + "Your cube's volume is: "+'\033[1m'+
                       f'{cube_volume_rounded}')
@@ -418,7 +590,7 @@ while desired_calculation != 6:     #as long as it isn't '6' it does this
                   f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
                   f'☲☲☲☲☲☲☲☲☲☲☲')
                 print(' ')
-                break
+                break                                                                           #UP TO HEREEEEEEEEEEEEEEE DONE
             elif what_shape == '3':
                 print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
                   f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
@@ -533,7 +705,7 @@ while desired_calculation != 6:     #as long as it isn't '6' it does this
   #  print(' ')
   #  desired_calculation = input('What calculation would you like to complete from the list/s? ')
   #  desired_calculation = int(desired_calculation)
-
+'''
 while desired_calculation == 6: #EXIT works
     goodbye_exit_screen()
     break
