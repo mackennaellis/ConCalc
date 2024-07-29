@@ -345,11 +345,11 @@ def goodbye_exit_screen():
 #NOTE FROM B4:: 'break' stops the 'continue' and prevents repeating forever
 
 desired_calculation = main_program_1st_display()
-'''
-#invalid ans        
-while (desired_calculation > 1) or (desired_calculation >= 7):                      #FIX NEXT LESSON
+
+#invalid ans        works
+while (desired_calculation < 1) or (desired_calculation >= 7): 
       desired_calculation = desired_calculation_invalid()  
-'''
+
 while desired_calculation != 6:     #as long as it isn't '6' it does this
     print(' ')
     os.system('cls')

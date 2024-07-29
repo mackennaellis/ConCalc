@@ -15,13 +15,14 @@ print('\033[0m' + '1. Addition')
 print('2. Subtraction')
 print('3. Multiplication')
 print('4. Division')
+print('5. Exit')
 enter_line()
 
 while True:
     basic_calc = input('Which basic calculation from the list would you like to calculate? ')
     enter_line()
     os.system('cls')
-
+'''
     if basic_calc == '1':
         numericals = []
 
@@ -92,3 +93,4 @@ while True:
         print('Invalid input, try a number between 1 and 5')
         enter_line()
         continue
+'''
