@@ -18,19 +18,28 @@ wall_angle = float(input('What is the angle of the wall? '))
 print(' ')
 
 
-#print(math.radians(height_outside_edge_lowest_wall))
-#print(math.radians(top_plate_thickness))
-#print(math.radians(wall_angle))
-
-
 #plumb_cut = top_plate_thickness / (math.degrees(math.cos(wall_angle)))
 plumb_cut = (top_plate_thickness / math.sin((90-wall_angle)*(math.pi/180)))
-print(plumb_cut)
-
+plumb_cut = round(plumb_cut, 3)
 
 bottom_plate_thickness = float(input('What is the bottom plate thickness? '))
 print(' ')
 
 FIRST_SHORTEST_stud_length = height_outside_edge_lowest_wall - (plumb_cut + bottom_plate_thickness)
+FIRST_SHORTEST_stud_length = round(FIRST_SHORTEST_stud_length, 3)
 
-print(FIRST_SHORTEST_stud_length)
+print(f"The 'plumb cut' is " + '\033[1m' f"{plumb_cut}" + '\033[0m' )
+print(f'The very first (shortest) stud length in the raked wall is '
+      f'\033[1m' + f'{FIRST_SHORTEST_stud_length}' '\033[0m' + ' long')
+
+print(' ')
+print(f'\n☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+          f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
+
+stud_space_running = float(input(f'What is the running stud spacing (the '
+                                 f'distance between each of the studs)? '))
+
+rise_of_stud = (math.tan(wall_angle*math.pi/180)*stud_space_running)
+rise_of_stud = round(rise_of_stud, 3)
+
+print(rise_of_stud)
