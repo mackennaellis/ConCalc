@@ -59,15 +59,150 @@ def calc_decking():     #DECKING OPTION (1) EXAMPLE/TEMPLATEE
     decking_result = answer1*sleep1  
     return decking_result
 
-def calc_stud():        #STUD OPTION (2)
-    print(f'\n☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
-          f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
-    answer1 = input('What is the length? ')
-    answer1=int(answer1)
-    sleep1 = input('what is the width? ')
-    sleep1=int(sleep1)
-    stud_result = answer1*sleep1  
-    return stud_result
+#for stud bit
+def invalid_negetive():
+      print(' ')
+      print(f'Invalid input, please input a ' + '\033[1m' + f'positive' +
+            '\033[0m' + f' number')
+      print(' ')
+
+def another_calcc():
+      print('-----------------------------------------------------------------------')
+      print(' ')
+      print('Next options:')
+      print(' ')
+      print('1. Calulate another stud length (just like you did)')
+      print('2. Exit')
+      another_calc = int(input("Would you like to complete another calculation? (input '1' or '2') "))
+      return another_calc
+#STUD OPTION (2)
+def stud_length():
+      print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+            f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
+      print(' ')
+
+      print('\033[1m' + 'Stud Length (/Raked Wall) selected: ' + '\033[0m')
+      print(' ')
+      print(f'Please remember: The answers will be in the same measurment units you '
+            f'input. Unless stated otherwise please keep the units the same across '
+            f'all inputs (you do not have to include the units in your input, '
+            f'simply input the integer value) otherwise the result/s will be '
+            f'incorrect')
+      print(' ')
+      units = input(f'What units are your measurements in (this will be the same units '
+                  f'in the results, all units must be the same unless stated '
+                  f'otherwise)? ')
+      #while units == int:
+      #  invalid_negetive()
+      #   units = input('What units are your measurements in? ')
+      print(' ')
+      print('-----------------------------------------------------------------------')
+      print(' ')
+
+      height_outside_edge_lowest_wall = float(input(f'What is the height of the '
+                                          f'lowest wall on the outside edge? '))
+      while height_outside_edge_lowest_wall < 0:
+            invalid_negetive()
+            height_outside_edge_lowest_wall = float(input(f'What is the height of the'
+                                          f' lowest wall on the outside edge? '))
+      print(' ')
+
+      top_plate_thickness = float(input(f'What is the top plates thickness? '))
+      while top_plate_thickness < 0:
+            invalid_negetive()
+            top_plate_thickness = float(input(f'What is the top plates thickness? '))
+      print(' ')
+
+      wall_angle = float(input(f'What is the angle of the wall (in degrees (unit), '
+                              f'negative values (reflex angles) accepted)? '))
+      print(' ')
+
+
+      #plumb_cut = top_plate_thickness / (math.degrees(math.cos(wall_angle)))
+      plumb_cut = (top_plate_thickness / math.sin((90-wall_angle)*(math.pi/180)))
+      plumb_cut = round(plumb_cut, 3)
+
+
+      bottom_plate_thickness = float(input('What is the bottom plate thickness? '))
+      while bottom_plate_thickness < 0:
+            invalid_negetive()
+            bottom_plate_thickness = float(input(f'What is the bottom plate '
+                                                f'thickness? '))
+      print(' ')
+
+      FIRST_SHORTEST_stud_length = (height_outside_edge_lowest_wall 
+                                    - (plumb_cut + bottom_plate_thickness))
+
+      FIRST_SHORTEST_stud_length = round(FIRST_SHORTEST_stud_length, 3)
+      os.system('cls')
+      print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+            f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+            f'☲')
+      print(' ')
+      print(f"The 'plumb cut' is " + '\033[1m' + f"{plumb_cut}" + f" " + f"{units}" 
+            f" " + '\033[0m' )
+      print(' ')
+      print(f'The very first (shortest) stud length in the raked wall is '
+            f'\033[1m' + f'{FIRST_SHORTEST_stud_length}' + f" " + f"{units}" + 
+            f'\033[0m' + ' long')
+      print(' ')
+      continuee=input("Press ENTER to continue")
+      os.system('cls')
+      print(f'\n☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+            f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
+      print(' ')
+      stud_space_running = float(input(f'What is the running stud spacing (the '
+                                    f'distance between each of the studs)? '))
+
+      while stud_space_running < 0:
+            invalid_negetive()
+            stud_space_running = float(input(f'What is the running stud spacing (the '
+                                    f'distance between each of the studs)? '))
+            
+      print(' ')
+      what_number_stud = int(input(f"What number stud along the bottom plate "
+                              f"(excluding the very first one on"
+                              f" the outside edge, so the miniumum input here is "
+                              f"'2') is the one you're calculating the height of? "))
+
+      while what_number_stud < 0:
+            invalid_negetive()
+            what_number_stud = input(f"What number stud along the bottom plate "
+                              f"(excluding the very first one on"
+                              f" the outside edge, so the miniumum input here is "
+                              f"'2') is the one you're calculating the height of? ")
+            
+      print(' ')
+      rise_of_stud = (math.tan(wall_angle*math.pi/180)*stud_space_running)
+      rise_of_stud = round(rise_of_stud, 3)
+
+      os.system('cls')
+      print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+            f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
+      print(' ')
+      print('Your final results/calculation answers are:')
+      print(' ')
+      print(f'The rise of stud number ' + '\033[1m' + f'{what_number_stud}'  + f" " + 
+            f"{units}" + f'\033[0m' + ' is: '   + '\033[1m' + f'{rise_of_stud}' + 
+            f'\033[0m')
+      print(' ')
+      calculated_stud_length = FIRST_SHORTEST_stud_length + rise_of_stud
+      calculated_stud_length = round(calculated_stud_length, 3)
+
+      print(f'The stud length for stud number ' + '\033[1m' + f'{what_number_stud}'
+            + f'\033[0m' + ' is: '  + '\033[1m' 
+            + f'{calculated_stud_length}'  + f" " + f"{units}" + '\033[0m')
+
+      print(' ')
+      print('And once again...')
+      print(' ')
+      print(f"The 'plumb cut' is " + '\033[1m' + f"{plumb_cut}" + f" " + f"{units}" 
+            f" " + '\033[0m' )
+      print(' ')
+      print(f'The very first (shortest) stud length in the raked wall is '
+            f'\033[1m' + f'{FIRST_SHORTEST_stud_length}' + f" " + f"{units}" + 
+            f'\033[0m' + ' long')
+      print(' ')
 
 #desired_calculation = 3 ('what shape' calculation functions) TESTED AND WORK
 def calc_rectangle_area():
@@ -361,11 +496,160 @@ while desired_calculation != 6:     #as long as it isn't '6' it does this
         print(' ')
         cont=input("Press ENTER to continue")                               
 
-    elif desired_calculation == 2:  #works
-        os.system('cls')
-        stud_result = calc_stud()
-        print(f'{stud_result}')
-        
+    elif desired_calculation == 2:  #
+
+      os.system('cls')
+      #  stud_result = stud_length()
+      print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+            f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
+      print(' ')
+
+      print('\033[1m' + 'Stud Length (/Raked Wall) selected: ' + '\033[0m')
+      print(' ')
+      print(f'Please remember: The answers will be in the same measurment units you '
+            f'input. Unless stated otherwise please keep the units the same across '
+            f'all inputs (you do not have to include the units in your input, '
+            f'simply input the integer value) otherwise the result/s will be '
+            f'incorrect')
+      print(' ')
+      units = input(f'What units are your measurements in (this will be the same units '
+                  f'in the results, all units must be the same unless stated '
+                  f'otherwise)? ')
+      #while units == int:
+      #  invalid_negetive()
+      #   units = input('What units are your measurements in? ')
+      print(' ')
+      print(f'------------------------------------------------------------'
+            f'-----------')
+      print(' ')
+
+      height_outside_edge_lowest_wall = float(input(f'What is the height of the '
+                                          f'lowest wall on the outside edge? '))
+      while height_outside_edge_lowest_wall < 0:
+            invalid_negetive()
+            height_outside_edge_lowest_wall = float(input(f'What is the height of the'
+                                          f' lowest wall on the outside edge? '))
+      print(' ')
+
+      top_plate_thickness = float(input(f'What is the top plates thickness? '))
+      while top_plate_thickness < 0:
+            invalid_negetive()
+            top_plate_thickness = float(input(f'What is the top plates thickness? '))
+      print(' ')
+
+      wall_angle = float(input(f'What is the angle of the wall (in degrees (unit), '
+                              f'negative values (reflex angles) accepted)? '))
+      print(' ')
+
+
+      #plumb_cut = top_plate_thickness / (math.degrees(math.cos(wall_angle)))
+      plumb_cut = (top_plate_thickness / math.sin((90-wall_angle)*(math.pi/180)))
+      plumb_cut = round(plumb_cut, 3)
+
+
+      bottom_plate_thickness = float(input('What is the bottom plate thickness? '))
+      while bottom_plate_thickness < 0:
+            invalid_negetive()
+            bottom_plate_thickness = float(input(f'What is the bottom plate '
+                                                f'thickness? '))
+      print(' ')
+
+      FIRST_SHORTEST_stud_length = (height_outside_edge_lowest_wall 
+                                    - (plumb_cut + bottom_plate_thickness))
+
+      FIRST_SHORTEST_stud_length = round(FIRST_SHORTEST_stud_length, 3)
+      os.system('cls')
+      print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+            f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+            f'☲')
+      print(' ')
+      print(f"The 'plumb cut' is " + '\033[1m' + f"{plumb_cut}" + f" " + f"{units}" 
+            f" " + '\033[0m' )
+      print(' ')
+      print(f'The very first (shortest) stud length in the raked wall is '
+            f'\033[1m' + f'{FIRST_SHORTEST_stud_length}' + f" " + f"{units}" + 
+            f'\033[0m' + ' long')
+      print(' ')
+      continuee=input("Press ENTER to continue")
+      os.system('cls')
+      print(f'\n☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+            f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
+      print(' ')
+      stud_space_running = float(input(f'What is the running stud spacing (the '
+                                    f'distance between each of the studs)? '))
+
+      while stud_space_running < 0:
+            invalid_negetive()
+            stud_space_running = float(input(f'What is the running stud spacing (the '
+                                    f'distance between each of the studs)? '))
+            
+      print(' ')
+      what_number_stud = float(input(f"What number stud along the bottom plate "
+                              f"(excluding the very first one on"
+                              f" the outside edge, so the miniumum input here is "
+                              f"'2') is the one you're calculating the height of? "))
+
+      while what_number_stud < 0:
+            invalid_negetive()
+            what_number_stud = input(f"What number stud along the bottom plate "
+                              f"(excluding the very first one on"
+                              f" the outside edge, so the miniumum input here "
+                              f"is '2') is the one you're calculating the "
+                              f"height of? ")
+            
+      print(' ')
+      rise_of_stud = (math.tan(wall_angle*math.pi/180)*stud_space_running)
+      rise_of_stud = round(rise_of_stud, 3)
+
+      os.system('cls')
+      print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+            f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+            f'☲')
+      print(' ')
+      print('Your final results/calculation answers are:')
+      print(' ')
+      print(f'The rise of stud number ' + '\033[1m' + f'{what_number_stud}'  
+            + f'\033[0m' + ' is: '   + '\033[1m' + f'{rise_of_stud}' + 
+            f'\033[0m')
+      print(' ')
+      calculated_stud_length = FIRST_SHORTEST_stud_length + rise_of_stud
+      calculated_stud_length = round(calculated_stud_length, 3)
+
+      print(f'The stud length for stud number ' + '\033[1m' + f'{what_number_stud}'
+            + f'\033[0m' + ' is: '  + '\033[1m' 
+            + f'{calculated_stud_length}'  + f" " + f"{units}" + '\033[0m')
+
+      print(' ')
+      print('And once again...')
+      print(' ')
+      print(f"The 'plumb cut' is " + '\033[1m' + f"{plumb_cut}"
+            + f" " + f"{units}" 
+            f" " + '\033[0m' )
+      print(' ')
+      print(f'The very first (shortest) stud length in the raked wall is '
+            f'\033[1m' + f'{FIRST_SHORTEST_stud_length}' + f" " + f"{units}" + 
+            f'\033[0m' + ' long')
+      print(' ')
+      print('-----------------------------------------------------------------------')
+      print(' ')
+      print('Next options:')
+      print(' ')
+      print('1. Calulate another stud length (just like you did)')
+      print('2. Exit')
+      print(' ')
+      another_calc = int(input("Would you like to complete another calculation? (input '1' or '2') "))
+      while another_calc == 1:
+            os.system('cls')
+            stud_length()
+            another_calc = another_calcc()
+      if another_calc == 2:
+            os.system('cls')
+            desired_calculation = main_program_1st_display() #(1)
+            
+      #break
+    
+
+      
     elif desired_calculation == 3:        #Area!          WORKS!! DONE
         os.system('cls')
         #display/list of operations
@@ -474,7 +758,7 @@ while desired_calculation != 6:     #as long as it isn't '6' it does this
             break
 
 
-#desired_calculation = main_program_1st_display()    
+      #desired_calculation = main_program_1st_display()    
             #works but the desired calculation goes to 'what_shape' and keeps 
             #within this loop, need to fix somehow..
 
@@ -584,17 +868,26 @@ while desired_calculation != 6:     #as long as it isn't '6' it does this
                   desired_calculation = main_program_1st_display() #(1)
                   break
             break
-'''
-    #elif desired_calculation == '5':
-        print('placeholder')
-        break
+
+
 
 #while int(desired_calculation) < 1:
    # print('Invalid input, try a number between 1 and 5')
   #  print(' ')
   #  desired_calculation = input('What calculation would you like to complete from the list/s? ')
   #  desired_calculation = int(desired_calculation)
-'''
+
 while desired_calculation == 6: #EXIT works
     goodbye_exit_screen()
     break
+
+    
+    '''      stud_length()
+      another_calc = another_calcc()
+      another_calc = int
+      while another_calc == 1:
+           stud_length()
+           another_calcc()
+      while another_calc == 2:
+           desired_calculation = main_program_1st_display() #(1)
+      break'''
