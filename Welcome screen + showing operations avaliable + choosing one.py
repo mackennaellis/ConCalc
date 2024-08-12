@@ -213,7 +213,15 @@ def calc_rectangle_area():
     print('')                
     width = float(input('\033[0m' + 'What is the width of the rectangle? '))
     print('')
+    while width < 0:
+            invalid_negetive()
+            width = float(input('What is the width of the rectangle? '))
+            print(' ')
     length = float(input('What is the length of the rectangle? '))
+    while length < 0:
+            invalid_negetive()
+            length = float(input('What is the length of the rectangle? '))
+            print(' ')
     print(f'\n☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
           f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
     os.system('cls')
@@ -234,6 +242,11 @@ def calc_square_area():
     print('')
     measurement = float(input('\033[0m' + 'What is the side length of the '
                               f'square? '))
+    while measurement < 0:
+            invalid_negetive()
+            measurement = float(input(f'What is the side length of the '
+                              f'square?  '))
+            print(' ')
 
     print(f'\n☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
           f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
@@ -255,6 +268,10 @@ def calc_circle_area():
     print(' ')
     radius = float(input(f'\033[0m' + 'What is the radius of the circle? '))
     print(' ')
+    while radius < 0:
+            invalid_negetive()
+            radius = float(input(f'What is the radius of the circle? '))
+            print(' ')
     print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
           f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
     os.system('cls')
@@ -275,7 +292,15 @@ def calc_cylinder_area():
     print(' ')
     radius = float(input('\033[0m' + 'What is the radius of the cylinder? ')) 
     print(' ')
+    while radius < 0:
+            invalid_negetive()
+            radius = float(input(f'What is the radius of the cylinder? '))
+            print(' ')
     height = float(input('What is the height of the cylinder? '))
+    while height < 0:
+            invalid_negetive()
+            radius = float(input(f'What is the height of the cylinder? '))
+            print(' ')
     print(f'\n☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
           f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
     os.system('cls')
@@ -296,7 +321,15 @@ def calc_triangle_area():
     print(' ')
     height = float(input('\033[0m' +'What is the height of the triangle? '))
     print(' ')
+    while height < 0:
+            invalid_negetive()
+            radius = float(input(f'What is the height of the triangle? '))
+            print(' ')
     base = float(input("What is the length of the triangle's base? "))
+    while base < 0:
+            invalid_negetive()
+            base = float(input(f"What is the length of the triagle's base? "))
+            print(' ')
     print(f'\n☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
           f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
     os.system('cls')
@@ -320,13 +353,25 @@ def calc_cuboid_volume():
       print(' ')
       height = float(input(f'\033[0m' + 'What is the height of the '
                               f'cuboid? ')) 
+      while height < 0:
+            invalid_negetive()
+            height = float(input(f'What is the height of the cuboid? '))
+            print(' ')
       #'float' allows for decimals as builders work to decimals 
 
       print(' ')
       width = float(input('What is the width of the cuboid? '))
       print(' ')
+      while width < 0:
+            invalid_negetive()
+            width = float(input(f'What is the width of the cuboid? '))
+            print(' ')
       depth = float(input('What is the depth of the cuboid? '))
       print(' ')
+      while depth < 0:
+            invalid_negetive()
+            depth = float(input(f'What is the depth of the cuboid? '))
+            print(' ')
       print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
       f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
       f'☲☲☲☲☲☲☲☲☲☲☲')
@@ -351,6 +396,11 @@ def calc_cube_volume():
       measurement = float(input(f'\033[0m' + 'What is the side length'
                               f' of the cube? '))
       print(' ')
+      while measurement < 0:
+            invalid_negetive()
+            measurement = float(input(f'What is the side length'
+                              f' of the cube? '))
+            print(' ')
 
       print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
       f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
@@ -376,8 +426,16 @@ def calc_cylinder_volume():
       height = float(input(f'\033[0m' + 'What is the height of the '
                               f'cylinder? '))
       print(' ')
+      while height < 0:
+            invalid_negetive()
+            height = float(input(f'What is the height of the cylinder? '))
+            print(' ')
       radius = float(input('What is the radius of the cylinder? '))
       print(' ')
+      while radius < 0:
+            invalid_negetive()
+            radius = float(input(f'What is the radius of the cylinder? '))
+            print(' ')
       print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
       f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
       f'☲☲☲☲☲☲☲☲☲☲☲')
@@ -402,8 +460,16 @@ def calc_cone_volume():
       height = float(input(f'\033[0m' + 'What is the height of the '
                               f'cone? '))
       print(' ')
+      while height < 0:
+            invalid_negetive()
+            height = float(input(f'What is the height of the cone? '))
+            print(' ')
       radius = float(input('What is the radius of the cone? '))
       print(' ')
+      while radius < 0:
+            invalid_negetive()
+            radius = float(input(f'What is the radius of the cone? '))
+            print(' ')
       print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
       f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
       f'☲☲☲☲☲☲☲☲☲☲☲')
@@ -427,6 +493,10 @@ def calc_sphere_volume():
       print(' ')
       radius = float(input('\033[0m' + 'What is the radius of the sphere? '))
       print(' ')
+      while radius < 0:
+            invalid_negetive()
+            radius = float(input(f'What is the radius of the sphere? '))
+            print(' ')
       print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
       f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
       f'☲☲☲☲☲☲☲☲☲☲☲')
@@ -645,8 +715,7 @@ while desired_calculation != 6:     #as long as it isn't '6' it does this
       if another_calc == 2:
             os.system('cls')
             desired_calculation = main_program_1st_display() #(1)
-            
-      #break
+
     
 
       
@@ -870,24 +939,6 @@ while desired_calculation != 6:     #as long as it isn't '6' it does this
             break
 
 
-
-#while int(desired_calculation) < 1:
-   # print('Invalid input, try a number between 1 and 5')
-  #  print(' ')
-  #  desired_calculation = input('What calculation would you like to complete from the list/s? ')
-  #  desired_calculation = int(desired_calculation)
-
 while desired_calculation == 6: #EXIT works
     goodbye_exit_screen()
     break
-
-    
-    '''      stud_length()
-      another_calc = another_calcc()
-      another_calc = int
-      while another_calc == 1:
-           stud_length()
-           another_calcc()
-      while another_calc == 2:
-           desired_calculation = main_program_1st_display() #(1)
-      break'''
