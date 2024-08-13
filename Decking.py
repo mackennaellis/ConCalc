@@ -1,3 +1,10 @@
+def invalid_negetive():
+      print(' ')
+      print(f'Invalid input, please input a ' + '\033[1m' + f'positive' +
+            '\033[0m' + f' number')
+      print(' ')
+
+
 print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
             f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
             f'☲☲')
@@ -30,7 +37,15 @@ print(' ')
 waste_percentage_num = float(input(f'What is the waste percentage '
                                f'number you would like to allow '
                                f'(units: percentage)? '))
+while waste_percentage_num < 0:
+            invalid_negetive()
+            waste_percentage_num = float(input(f'What is the waste percentage '
+                               f'number you would like to allow '
+                               f'(units: percentage)? '))
     #not 0
+print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+            f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+            f'☲☲')
 
 decking_area = deck_width * deck_length
 decking_area_rounded = round(decking_area, 3)
@@ -42,5 +57,17 @@ decking_area_in_m2 = (gap + width) / 1000
 
 quantity_linear_m = ((decking_area**2) / decking_area_in_m2) * waste_percentage
 
-
+print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+            f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+            f'☲☲')
+print(' ')
+print('\033[1m' + 'Linear Metres Of Decking Required Selected: ')
+print(' ')
+print(f'\033[0m' + f'For this {decking_area} metres-squared deck,' 
+      + '\033[1m' +  f'{quantity_linear_m} linear-metres of decking is '
+      f'required')
+print(' ')
+print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+            f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+            f'☲☲')
 
