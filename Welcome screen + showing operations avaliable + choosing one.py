@@ -230,7 +230,8 @@ def stud_length():
       while stud_space_running < 0:
             invalid_negetive()
             stud_space_running = float(input(f'What is the running stud spacing (the '
-                                    f'distance between each of the studs)? '))
+                                    f'distance from the very first '
+                                    f'stud at the lowest side of the wall)? '))
             
       print(' ')
       what_number_stud = int(input(f"What number stud along the bottom plate "
@@ -255,8 +256,8 @@ def stud_length():
       print(' ')
       print('Your final results/calculation answers are:')
       print(' ')
-      print(f'The rise of stud number ' + '\033[1m' + f'{what_number_stud}'  + f" " + 
-            f"{units}" + f'\033[0m' + ' is: '   + '\033[1m' + f'{rise_of_stud}' + 
+      print(f'The rise of stud number ' + '\033[1m' + f'{what_number_stud}'
+            + f'\033[0m' + ' is: '   + '\033[1m' + f'{rise_of_stud}' + 
             f'\033[0m')
       print(' ')
       calculated_stud_length = FIRST_SHORTEST_stud_length + rise_of_stud
@@ -681,7 +682,7 @@ def goodbye_exit_screen():
     print(' ')
     print('All of the calculation results you recieved are below!!')
     for operation in finalreport:
-      print('The', operation, 'is', finalreport[operation])             #rearrang/format and done
+      print('The', operation, 'is', finalreport[operation])             #rearrange/format and done
       
     print(' ')
     print(f'★ ° . *　　　°　.　°☆ 　. * ● ¸ . 　　　★ 　° :. ★　 * • ○ ° ★ .　 '
