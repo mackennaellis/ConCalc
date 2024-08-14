@@ -1,6 +1,13 @@
 import math
 import os
 
+#invalid negative
+def invalid_negetive():
+      print(' ')
+      print(f'Invalid input, please input a ' + '\033[1m' + f'positive' +
+            '\033[0m' + f' number')
+      print(' ')
+
 #Main Program
 def main_program_1st_display():
     print(f'\n☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
@@ -25,9 +32,9 @@ def main_program_1st_display():
     print('\033[1m' + 'Simple: ')
     print('\033[0m' + '3. Area Of A Shape ')
     print('4. Volume Of A Shape ')
-    print('5. Basic Mathematic Calculations ')
 
-    print('6. Exit ')
+    print(' ')
+    print('5. Exit ')
     print(' ')
 
     desired_calculation = int(input(f'What calculation would you like to '
@@ -50,22 +57,88 @@ def desired_calculation_invalid():
       desired_calculation = int(desired_calculation)
       return desired_calculation
 
-def calc_decking():     #DECKING OPTION (1) EXAMPLE/TEMPLATEE
-    print(f'\n☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
-          f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
-    answer1 = int(input('What is the length? '))
-    sleep1 = input('what is the width? ')
-    sleep1=int(sleep1)
-    decking_result = answer1*sleep1  
-    return decking_result
+#DECKING OPTION (1)
+def linear_metres_decking_required():
+      print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+                  f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+                  f'☲☲')
+      print(' ')
+      print('\033[1m' + 'Linear Metres Of Decking Required Selected: ')
+      print('')           
+      print(f'\033[0m' + f'Next to the questions, units will be stated. '
+            f'Please do not include the units in your input '
+            f'it is simply to tell you what units the input '
+            f'should be in.')     
+      print(' ')
+      width = float(input(f"What is the width of the decking boards "
+                        f"you're going to be using (units: millimetres)? "))
+      print(' ')
+      gap = float(input(f'What is the width of the gap between the '
+                        f'decking boards horizontally (units: '
+                        f'millimetres)? '))
+      print('')
+      deck_width = float(input(f'What is the width of the overall '
+                              f'(whole) deck (units: metres)? '))
+      print(' ')
+      deck_length = float(input(f'What is the length of the overall '
+                              f'(whole) deck (units: metres)? '))
+      print(' ')
+      print('-----------------------------------------------------------------------')
+      print(' ')
+      print(f'**A waste percentage is how much waste (extra) '
+            f'are you allowing for. Between 5 - 15% is '
+            f'recommended with 10% usually being a great allowance. '
+            f'At least greater then zero**')
+      print(' ')
+      waste_percentage_num = float(input(f'What is the waste percentage '
+                                    f'number you would like to allow '
+                                    f'(units: percentage)? '))
+      while waste_percentage_num <= 0:
+                  invalid_negetive()
+                  waste_percentage_num = float(input(f'What is the waste percentage '
+                                    f'number you would like to allow '
+                                    f'(units: percentage)? '))
+      #not 0
+      print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+                  f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+                  f'☲☲')
+
+      os.system('cls')
+
+      decking_area = deck_width * deck_length
+      decking_area_rounded = round(decking_area, 3)
+
+      waste_percentage = (waste_percentage_num / 100) + 1
+
+      #Amount in m^2 one linear metre (board??) takes up
+      decking_area_in_m2 = (gap + width) / 1000
+
+      quantity_linear_m = ((decking_area**2) / decking_area_in_m2) * waste_percentage
+      quantity_linear_m_rounded = round(quantity_linear_m, 3)
+
+      print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+                  f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+                  f'☲☲')
+      print(' ')
+      print('\033[1m' + 'Linear Metres Of Decking Required Selected: ')
+      print(' ')
+      print(f'\033[0m' + f'For this {decking_area} metres-squared deck, ' 
+            + '\033[1m' +  f'{quantity_linear_m_rounded} linear-metres ' 
+            + '\033[0m' + f'of decking is required')
+      print(' ')
+      return quantity_linear_m_rounded
+
+def another_calc_linear_decking():
+      print('-----------------------------------------------------------------------')
+      print(' ')
+      print('Next options:')
+      print(' ')
+      print('1. Calulate another amount of linear metres of decking (just like you did)')
+      print('2. Back to main menu')
+      another_calc_Ld = int(input("Would you like to complete another calculation? (input '1' or '2') "))
+      return another_calc_Ld
 
 #for stud bit
-def invalid_negetive():
-      print(' ')
-      print(f'Invalid input, please input a ' + '\033[1m' + f'positive' +
-            '\033[0m' + f' number')
-      print(' ')
-
 def another_calcc():
       print('-----------------------------------------------------------------------')
       print(' ')
@@ -547,159 +620,55 @@ def goodbye_exit_screen():
     print(f'★ ° . *　　　°　.　°☆ 　. * ● ¸ . 　　　★ 　° :. ★　 * • ○ ° ★ .　 '
           f'* 　.　. ° 　. ● . ★ ° . *　　　°　.　°☆')
 
-#NOTE FROM B4:: 'break' stops the 'continue' and prevents repeating forever
+#making (now empty) dictionary 
+finalreport = {}
 
 desired_calculation = main_program_1st_display()
 
 #invalid ans        works
-while (desired_calculation < 1) or (desired_calculation >= 7): 
+while (desired_calculation < 1) or (desired_calculation >= 6): 
       desired_calculation = desired_calculation_invalid()  
 
-while desired_calculation != 6:     #as long as it isn't '6' it does this
+while desired_calculation != 5:     #as long as it isn't '6' it does this
     print(' ')
     os.system('cls')
 
     if desired_calculation == 1:  #works but ofc needs work INCOMPLETE
-        os.system('cls')
-        decking_result = calc_decking()
-        print(f'{decking_result}')
-        print(' ')
-        cont=input("Press ENTER to continue")                               
+      os.system('cls')
+      #decking_result = calc_decking()
+      quantity_linear_m_rounded = linear_metres_decking_required()
+
+      #adding 1st one to dic
+      finalreport["Linear metres of decking required (1)"] = f"{quantity_linear_m_rounded}"
+
+      print('-----------------------------------------------------------------------')
+      print(' ')
+      print('Next options:')
+      print(' ')
+      print('1. Calulate another stud length (just like you did)')
+      print('2. Exit')
+      print(' ')
+      another_calc_Ld = int(input("Would you like to complete another calculation? (input '1' or '2') "))
+      while another_calc_Ld == 1:
+            os.system('cls')
+            linear_metres_decking_required()
+            i=2
+            for i in range (2, i+1):
+                 # i = i +1                     need to work on next lesson (different 2nd value in dic) + more
+                  finalreport[f"Linear metres of decking required ({i})"] = f"{quantity_linear_m_rounded}"
+                  
+            print(finalreport)
+            another_calc_Ld = another_calc_linear_decking()
+      if another_calc_Ld == 2:
+            os.system('cls')
+            desired_calculation = main_program_1st_display() #(1)
+      #cont=input("Press ENTER to continue")                               
 
     elif desired_calculation == 2:  #
 
       os.system('cls')
       #  stud_result = stud_length()
-      print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
-            f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
-      print(' ')
-
-      print('\033[1m' + 'Stud Length (/Raked Wall) selected: ' + '\033[0m')
-      print(' ')
-      print(f'Please remember: The answers will be in the same measurment units you '
-            f'input. Unless stated otherwise please keep the units the same across '
-            f'all inputs (you do not have to include the units in your input, '
-            f'simply input the integer value) otherwise the result/s will be '
-            f'incorrect')
-      print(' ')
-      units = input(f'What units are your measurements in (this will be the same units '
-                  f'in the results, all units must be the same unless stated '
-                  f'otherwise)? ')
-      #while units == int:
-      #  invalid_negetive()
-      #   units = input('What units are your measurements in? ')
-      print(' ')
-      print(f'------------------------------------------------------------'
-            f'-----------')
-      print(' ')
-
-      height_outside_edge_lowest_wall = float(input(f'What is the height of the '
-                                          f'lowest wall on the outside edge? '))
-      while height_outside_edge_lowest_wall < 0:
-            invalid_negetive()
-            height_outside_edge_lowest_wall = float(input(f'What is the height of the'
-                                          f' lowest wall on the outside edge? '))
-      print(' ')
-
-      top_plate_thickness = float(input(f'What is the top plates thickness? '))
-      while top_plate_thickness < 0:
-            invalid_negetive()
-            top_plate_thickness = float(input(f'What is the top plates thickness? '))
-      print(' ')
-
-      wall_angle = float(input(f'What is the angle of the wall (in degrees (unit), '
-                              f'negative values (reflex angles) accepted)? '))
-      print(' ')
-
-
-      #plumb_cut = top_plate_thickness / (math.degrees(math.cos(wall_angle)))
-      plumb_cut = (top_plate_thickness / math.sin((90-wall_angle)*(math.pi/180)))
-      plumb_cut = round(plumb_cut, 3)
-
-
-      bottom_plate_thickness = float(input('What is the bottom plate thickness? '))
-      while bottom_plate_thickness < 0:
-            invalid_negetive()
-            bottom_plate_thickness = float(input(f'What is the bottom plate '
-                                                f'thickness? '))
-      print(' ')
-
-      FIRST_SHORTEST_stud_length = (height_outside_edge_lowest_wall 
-                                    - (plumb_cut + bottom_plate_thickness))
-
-      FIRST_SHORTEST_stud_length = round(FIRST_SHORTEST_stud_length, 3)
-      os.system('cls')
-      print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
-            f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
-            f'☲')
-      print(' ')
-      print(f"The 'plumb cut' is " + '\033[1m' + f"{plumb_cut}" + f" " + f"{units}" 
-            f" " + '\033[0m' )
-      print(' ')
-      print(f'The very first (shortest) stud length in the raked wall is '
-            f'\033[1m' + f'{FIRST_SHORTEST_stud_length}' + f" " + f"{units}" + 
-            f'\033[0m' + ' long')
-      print(' ')
-      continuee=input("Press ENTER to continue")
-      os.system('cls')
-      print(f'\n☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
-            f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
-      print(' ')
-      stud_space_running = float(input(f'What is the running stud spacing (the '
-                                    f'distance between each of the studs)? '))
-
-      while stud_space_running < 0:
-            invalid_negetive()
-            stud_space_running = float(input(f'What is the running stud spacing (the '
-                                    f'distance between each of the studs)? '))
-            
-      print(' ')
-      what_number_stud = float(input(f"What number stud along the bottom plate "
-                              f"(excluding the very first one on"
-                              f" the outside edge, so the miniumum input here is "
-                              f"'2') is the one you're calculating the height of? "))
-
-      while what_number_stud < 0:
-            invalid_negetive()
-            what_number_stud = input(f"What number stud along the bottom plate "
-                              f"(excluding the very first one on"
-                              f" the outside edge, so the miniumum input here "
-                              f"is '2') is the one you're calculating the "
-                              f"height of? ")
-            
-      print(' ')
-      rise_of_stud = (math.tan(wall_angle*math.pi/180)*stud_space_running)
-      rise_of_stud = round(rise_of_stud, 3)
-
-      os.system('cls')
-      print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
-            f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
-            f'☲')
-      print(' ')
-      print('Your final results/calculation answers are:')
-      print(' ')
-      print(f'The rise of stud number ' + '\033[1m' + f'{what_number_stud}'  
-            + f'\033[0m' + ' is: '   + '\033[1m' + f'{rise_of_stud}' + 
-            f'\033[0m')
-      print(' ')
-      calculated_stud_length = FIRST_SHORTEST_stud_length + rise_of_stud
-      calculated_stud_length = round(calculated_stud_length, 3)
-
-      print(f'The stud length for stud number ' + '\033[1m' + f'{what_number_stud}'
-            + f'\033[0m' + ' is: '  + '\033[1m' 
-            + f'{calculated_stud_length}'  + f" " + f"{units}" + '\033[0m')
-
-      print(' ')
-      print('And once again...')
-      print(' ')
-      print(f"The 'plumb cut' is " + '\033[1m' + f"{plumb_cut}"
-            + f" " + f"{units}" 
-            f" " + '\033[0m' )
-      print(' ')
-      print(f'The very first (shortest) stud length in the raked wall is '
-            f'\033[1m' + f'{FIRST_SHORTEST_stud_length}' + f" " + f"{units}" + 
-            f'\033[0m' + ' long')
-      print(' ')
+      stud_length()
       print('-----------------------------------------------------------------------')
       print(' ')
       print('Next options:')
@@ -939,6 +908,6 @@ while desired_calculation != 6:     #as long as it isn't '6' it does this
             break
 
 
-while desired_calculation == 6: #EXIT works
+while desired_calculation == 5: #EXIT works
     goodbye_exit_screen()
     break

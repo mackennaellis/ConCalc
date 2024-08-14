@@ -147,4 +147,4 @@ if another_calc == 1:
       stud_length()
 elif another_calc == 2:
       desired_calculation = main_program_1st_display() #(1)
-      break
+
