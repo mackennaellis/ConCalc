@@ -4,7 +4,7 @@ import os
 #invalid negative
 def invalid_negetive():
       print(' ')
-      print(f'Invalid input, please input a ' + '\033[1m' + f'positive' +
+      print(f'Invalid input, please input a more ' + '\033[1m' + f'positive' +
             '\033[0m' + f' number')
       print(' ')
 
@@ -70,6 +70,8 @@ def linear_metres_decking_required():
             f'it is simply to tell you what units the input '
             f'should be in.')     
       print(' ')
+      deck_num = input('What number deck are you calculating the linear metres of decking required for? ')
+      print(' ')
       width = float(input(f"What is the width of the decking boards "
                         f"you're going to be using (units: millimetres)? "))
       print(' ')
@@ -98,10 +100,7 @@ def linear_metres_decking_required():
                   waste_percentage_num = float(input(f'What is the waste percentage '
                                     f'number you would like to allow '
                                     f'(units: percentage)? '))
-      #not 0
-      print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
-                  f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
-                  f'☲☲')
+
 
       os.system('cls')
 
@@ -126,7 +125,7 @@ def linear_metres_decking_required():
             + '\033[1m' +  f'{quantity_linear_m_rounded} linear-metres ' 
             + '\033[0m' + f'of decking is required')
       print(' ')
-      return quantity_linear_m_rounded
+      return quantity_linear_m_rounded, deck_num
 
 def another_calc_linear_decking():
       print('-----------------------------------------------------------------------')
@@ -145,7 +144,8 @@ def another_calcc():
       print('Next options:')
       print(' ')
       print('1. Calulate another stud length (just like you did)')
-      print('2. Exit')
+      print('2. Back to main menu')
+      print(' ')
       another_calc = int(input("Would you like to complete another calculation? (input '1' or '2') "))
       return another_calc
 #STUD OPTION (2)
@@ -238,12 +238,12 @@ def stud_length():
                               f" the outside edge, so the miniumum input here is "
                               f"'2') is the one you're calculating the height of? "))
 
-      while what_number_stud < 0:
+      while what_number_stud <= 1:
             invalid_negetive()
-            what_number_stud = input(f"What number stud along the bottom plate "
+            what_number_stud = int(input(f"What number stud along the bottom plate "
                               f"(excluding the very first one on"
                               f" the outside edge, so the miniumum input here is "
-                              f"'2') is the one you're calculating the height of? ")
+                              f"'2') is the one you're calculating the height of? "))
             
       print(' ')
       rise_of_stud = (math.tan(wall_angle*math.pi/180)*stud_space_running)
@@ -276,6 +276,7 @@ def stud_length():
             f'\033[1m' + f'{FIRST_SHORTEST_stud_length}' + f" " + f"{units}" + 
             f'\033[0m' + ' long')
       print(' ')
+      return calculated_stud_length, what_number_stud, units
 
 #desired_calculation = 3 ('what shape' calculation functions) TESTED AND WORK
 def calc_rectangle_area():
@@ -283,7 +284,13 @@ def calc_rectangle_area():
           f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
     print('')
     print('\033[1m' + 'Rectangle area selected: ')
-    print('')                
+    print('')  
+    rectangle_num = input('\033[0m' + 'What number rectangle are you calculating the area of? ')      ##
+    print(' ')              
+    units_rec = input(f"What units (metres, centimetres, etc) are you're "          ##
+                      f"measurements in (please keep them the same for "
+                      f"each input unless asked for differently)? ")
+    print(' ')
     width = float(input('\033[0m' + 'What is the width of the rectangle? '))
     print('')
     while width < 0:
@@ -306,13 +313,19 @@ def calc_rectangle_area():
     
     rectangle_area = width * length
     rectangle_area_rounded = round(rectangle_area, 3)
-    return rectangle_area_rounded
+    return rectangle_area_rounded, rectangle_num, units_rec
 def calc_square_area():
     print(f'\n☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
           f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
     print('') 
     print('\033[1m' + 'Square area selected: ')
-    print('')
+    print('') 
+    square_num = input('\033[0m' + 'What number square are you calculating the area of? ')      ##
+    print(' ')              
+    units_square = input(f"What units (metres, centimetres, etc) are you're "          ##
+                      f"measurements in (please keep them the same for "
+                      f"each input unless asked for differently)? ")
+    print(' ')
     measurement = float(input('\033[0m' + 'What is the side length of the '
                               f'square? '))
     while measurement < 0:
@@ -332,12 +345,19 @@ def calc_square_area():
     
     square_area = measurement * 2
     square_area_rounded = round(square_area, 3)
-    return square_area_rounded
+    return square_area_rounded, square_num, units_square
 def calc_circle_area():
     print(f'\n☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
           f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
     print(' ')
+    
     print('\033[1m' + 'Circle area selected: ')
+    print(' ')
+    circle_num = input('\033[0m' + 'What number circle are you calculating the area of? ')      ##
+    print(' ')              
+    units_circle = input(f"What units (metres, centimetres, etc) are you're "          ##
+                      f"measurements in (please keep them the same for "
+                      f"each input unless asked for differently)? ")
     print(' ')
     radius = float(input(f'\033[0m' + 'What is the radius of the circle? '))
     print(' ')
@@ -356,12 +376,18 @@ def calc_circle_area():
     
     circle_area = math.pi * (radius ** 2)
     circle_area_rounded = round(circle_area, 3)
-    return circle_area_rounded
+    return circle_area_rounded, circle_num, units_circle
 def calc_cylinder_area():
     print(f'\n☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
           f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
     print(' ')       
     print('\033[1m' + 'Cylinder (Surface Area) selected: ')
+    print(' ')
+    cylinder_num = input('\033[0m' + 'What number cylinder are you calculating the area of? ')      ##
+    print(' ')              
+    units_cylinder = input(f"What units (metres, centimetres, etc) are you're "          ##
+                      f"measurements in (please keep them the same for "
+                      f"each input unless asked for differently)? ")
     print(' ')
     radius = float(input('\033[0m' + 'What is the radius of the cylinder? ')) 
     print(' ')
@@ -385,12 +411,18 @@ def calc_cylinder_area():
     
     cylinder_area = (2 * math.pi * radius*height) + (2 * math.pi *(radius **2))
     cylinder_area_rounded = round(cylinder_area, 3)
-    return cylinder_area_rounded
+    return cylinder_area_rounded, cylinder_num, units_cylinder
 def calc_triangle_area():
     print(f'\n☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
           f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
     print(' ')
     print('\033[1m' + 'Triangle area selected: ')
+    print(' ')
+    triangle_num = input('\033[0m' + 'What number triangle are you calculating the area of? ')      ##
+    print(' ')              
+    units_triangle = input(f"What units (metres, centimetres, etc) are you're "          ##
+                      f"measurements in (please keep them the same for "
+                      f"each input unless asked for differently)? ")
     print(' ')
     height = float(input('\033[0m' +'What is the height of the triangle? '))
     print(' ')
@@ -414,7 +446,7 @@ def calc_triangle_area():
     
     triangle_area = (height * base)/2
     triangle_area_rounded = round(triangle_area, 3)
-    return triangle_area_rounded
+    return triangle_area_rounded, triangle_num, units_triangle
 
 #VOLUMEEE
 def calc_cuboid_volume():
@@ -423,6 +455,12 @@ def calc_cuboid_volume():
                   f'☲☲☲☲☲☲☲☲☲☲☲')
       print(' ')
       print('\033[1m' + 'Cuboid volume selected: ')
+      print(' ')
+      cubiod_num = input('\033[0m' + 'What number cuboid are you calculating the volume of? ')      ##
+      print(' ')              
+      units_cuboid = input(f"What units (metres, centimetres, etc) are you're "          ##
+                      f"measurements in (please keep them the same for "
+                      f"each input unless asked for differently)? ")
       print(' ')
       height = float(input(f'\033[0m' + 'What is the height of the '
                               f'cuboid? ')) 
@@ -458,13 +496,19 @@ def calc_cuboid_volume():
 
       cuboid_volume = height * width * depth
       cuboid_volume_rounded = round(cuboid_volume, 3)
-      return cuboid_volume_rounded
+      return cuboid_volume_rounded, cubiod_num, units_cuboid
 def calc_cube_volume():
       print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
                   f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
                   f'☲☲☲☲☲☲☲☲☲☲☲')
       print(' ')
       print('\033[1m' + 'Cube volume selected: ')
+      print(' ')
+      cube_num = input('\033[0m' + 'What number cube are you calculating the volume of? ')      ##
+      print(' ')              
+      units_cube = input(f"What units (metres, centimetres, etc) are you're "          ##
+                      f"measurements in (please keep them the same for "
+                      f"each input unless asked for differently)? ")
       print(' ')
       measurement = float(input(f'\033[0m' + 'What is the side length'
                               f' of the cube? '))
@@ -488,13 +532,19 @@ def calc_cube_volume():
 
       cube_volume = measurement * 3
       cube_volume_rounded = round(cube_volume, 3)
-      return cube_volume_rounded
+      return cube_volume_rounded, cube_num, units_cube
 def calc_cylinder_volume():
       print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
       f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
       f'☲☲☲☲☲☲☲☲☲☲☲')
       print(' ')
       print('\033[1m' + 'Cylinder volume selected: ')
+      print(' ')
+      cylinder_num = input('\033[0m' + 'What number cylinder are you calculating the volume of? ')      ##
+      print(' ')              
+      units_cylinder = input(f"What units (metres, centimetres, etc) are you're "          ##
+                      f"measurements in (please keep them the same for "
+                      f"each input unless asked for differently)? ")
       print(' ')
       height = float(input(f'\033[0m' + 'What is the height of the '
                               f'cylinder? '))
@@ -522,13 +572,19 @@ def calc_cylinder_volume():
 
       cylinder_volume = math.pi * (radius ** 2) * height
       cylinder_volume_rounded = round(cylinder_volume, 3)  
-      return cylinder_volume_rounded
+      return cylinder_volume_rounded, cylinder_num, units_cylinder
 def calc_cone_volume():
       print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
       f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
       f'☲☲☲☲☲☲☲☲☲☲☲')
       print(' ')       
       print('\033[1m' + 'Cone volume selected: ')
+      print(' ')
+      cone_num = input('\033[0m' + 'What number cone are you calculating the volume of? ')      ##
+      print(' ')              
+      units_cone = input(f"What units (metres, centimetres, etc) are you're "          ##
+                      f"measurements in (please keep them the same for "
+                      f"each input unless asked for differently)? ")
       print(' ')
       height = float(input(f'\033[0m' + 'What is the height of the '
                               f'cone? '))
@@ -556,13 +612,19 @@ def calc_cone_volume():
 
       cone_volume = math.pi * (radius ** 2) * (height/3)
       cone_volume_rounded = round(cone_volume, 3)
-      return cone_volume_rounded
+      return cone_volume_rounded, cone_num, units_cone
 def calc_sphere_volume():
       print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
       f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
       f'☲☲☲☲☲☲☲☲☲☲☲')
       print(' ')
       print('\033[1m' + 'Sphere volume selected: ')
+      print(' ')
+      sphere_num = input('\033[0m' + 'What number sphere are you calculating the volume of? ')      ##
+      print(' ')              
+      units_sphere = input(f"What units (metres, centimetres, etc) are you're "          ##
+                      f"measurements in (please keep them the same for "
+                      f"each input unless asked for differently)? ")
       print(' ')
       radius = float(input('\033[0m' + 'What is the radius of the sphere? '))
       print(' ')
@@ -583,7 +645,7 @@ def calc_sphere_volume():
 
       sphere_volume = (4/3) * math.pi * (radius ** 3)
       sphere_volume_rounded = round(sphere_volume, 3)
-      return sphere_volume_rounded
+      return sphere_volume_rounded, sphere_num, units_sphere
 
 #WHAT SHAPE INVAILD
 def what_shape_invalid():
@@ -617,6 +679,11 @@ def goodbye_exit_screen():
     print(f'\nThank you for using ConCalc!! Goodluck on your project/s and '
           f'return soon!')
     print(' ')
+    print('All of the calculation results you recieved are below!!')
+    for operation in finalreport:
+      print('The', operation, 'is', finalreport[operation])             #rearrang/format and done
+      
+    print(' ')
     print(f'★ ° . *　　　°　.　°☆ 　. * ● ¸ . 　　　★ 　° :. ★　 * • ○ ° ★ .　 '
           f'* 　.　. ° 　. ● . ★ ° . *　　　°　.　°☆')
 
@@ -636,7 +703,7 @@ while desired_calculation != 5:     #as long as it isn't '6' it does this
     if desired_calculation == 1:  #works but ofc needs work INCOMPLETE
       os.system('cls')
       #decking_result = calc_decking()
-      quantity_linear_m_rounded = linear_metres_decking_required()
+      quantity_linear_m_rounded, deck_num = linear_metres_decking_required()
 
       #adding 1st one to dic
       finalreport["Linear metres of decking required (1)"] = f"{quantity_linear_m_rounded}"
@@ -646,18 +713,14 @@ while desired_calculation != 5:     #as long as it isn't '6' it does this
       print('Next options:')
       print(' ')
       print('1. Calulate another stud length (just like you did)')
-      print('2. Exit')
+      print('2. Back to main menu')
       print(' ')
       another_calc_Ld = int(input("Would you like to complete another calculation? (input '1' or '2') "))
       while another_calc_Ld == 1:
             os.system('cls')
-            linear_metres_decking_required()
-            i=2
-            for i in range (2, i+1):
-                 # i = i +1                     need to work on next lesson (different 2nd value in dic) + more
-                  finalreport[f"Linear metres of decking required ({i})"] = f"{quantity_linear_m_rounded}"
-                  
-            print(finalreport)
+            quantity_linear_m_rounded, deck_num = linear_metres_decking_required()
+            finalreport[f"Linear metres of decking required ({deck_num})"] = f"{quantity_linear_m_rounded}"
+            
             another_calc_Ld = another_calc_linear_decking()
       if another_calc_Ld == 2:
             os.system('cls')
@@ -668,27 +731,27 @@ while desired_calculation != 5:     #as long as it isn't '6' it does this
 
       os.system('cls')
       #  stud_result = stud_length()
-      stud_length()
+      calculated_stud_length, what_number_stud, units = stud_length()
+      finalreport[f"Stud length ({what_number_stud})"] = f"{calculated_stud_length} {units}"
       print('-----------------------------------------------------------------------')
       print(' ')
       print('Next options:')
       print(' ')
       print('1. Calulate another stud length (just like you did)')
-      print('2. Exit')
+      print('2. Back to main menu')
       print(' ')
       another_calc = int(input("Would you like to complete another calculation? (input '1' or '2') "))
       while another_calc == 1:
             os.system('cls')
-            stud_length()
+            calculated_stud_length, what_number_stud, units = stud_length()
+            finalreport[f"Stud length ({what_number_stud})"] = f"{calculated_stud_length} {units}"
+                  
             another_calc = another_calcc()
       if another_calc == 2:
             os.system('cls')
             desired_calculation = main_program_1st_display() #(1)
-
-    
-
       
-    elif desired_calculation == 3:        #Area!          WORKS!! DONE
+    elif desired_calculation == 3:        #Area!          WORKS!! DONE  W DICTIONARY APPEND ALSO DONE
         os.system('cls')
         #display/list of operations
         print(f'\n☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
@@ -724,10 +787,10 @@ while desired_calculation != 5:     #as long as it isn't '6' it does this
             #rectangle                                    
             if what_shape == 1:
                 os.system('cls')
-                rectangle_area_rounded = calc_rectangle_area()
-        
+                rectangle_area_rounded, rectangle_num, units_rec = calc_rectangle_area()
+                finalreport[f"Rectangle area ({rectangle_num})"] = f"{rectangle_area_rounded} {units_rec} squared"
                 print(f'\033[0m' + "Your rectangle's area is: " + '\033[1m' +
-                      f'{rectangle_area_rounded}')
+                      f'{rectangle_area_rounded} {units_rec} squared')
                 print(' ')
                 print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
                   f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
@@ -739,10 +802,10 @@ while desired_calculation != 5:     #as long as it isn't '6' it does this
             #square                           
             elif what_shape == 2:
                 os.system('cls')
-                square_area_rounded = calc_square_area()
-
+                square_area_rounded, square_num, units_square = calc_square_area()
+                finalreport[f"Square area ({square_num})"] = f"{square_area_rounded} {units_square} squared"
                 print(f'\033[0m' + "Your cube's volume is: " + '\033[1m' +
-                      f'{square_area_rounded}')
+                      f'{square_area_rounded} {units_square} squared')
                 print(' ')
                 print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
                   f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
@@ -752,10 +815,10 @@ while desired_calculation != 5:     #as long as it isn't '6' it does this
             #circle    
             elif what_shape == 3:
                 os.system('cls')
-                circle_area_rounded = calc_circle_area()
-
+                circle_area_rounded, circle_num, units_circle = calc_circle_area()
+                finalreport[f"Circle area ({circle_num})"] = f"{circle_area_rounded} {units_circle} squared"
                 print(f'\033[0m' + "Your circle's area is: " + '\033[1m' +
-                      f'{circle_area_rounded}')
+                      f'{circle_area_rounded} {units_circle} squared')
                 print(' ')
                 print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
                   f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
@@ -765,10 +828,10 @@ while desired_calculation != 5:     #as long as it isn't '6' it does this
             #cylinder    
             elif what_shape == 4:
                 os.system('cls')
-                cylinder_area_rounded = calc_cylinder_area()
-
+                cylinder_area_rounded, cylinder_num, units_cylinder = calc_cylinder_area()
+                finalreport[f"Cylinder area ({cylinder_num})"] = f"{cylinder_area_rounded} {units_cylinder} squared"
                 print(f'\033[0m'+"Your cylinder's surface area is: "+'\033[1m'+ 
-                      f'{cylinder_area_rounded}')
+                      f'{cylinder_area_rounded} {units_cylinder} squared')
                 print(' ')
                 print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
                   f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
@@ -778,10 +841,10 @@ while desired_calculation != 5:     #as long as it isn't '6' it does this
             #triagle    
             elif what_shape == 5:
                 os.system('cls')
-                triangle_area_rounded = calc_triangle_area()
-
+                triangle_area_rounded, triangle_num, units_triangle = calc_triangle_area()
+                finalreport[f"Triangle area ({triangle_num})"] = f"{triangle_area_rounded} {units_triangle} squared"
                 print(f'\033[0m' + "Your triangle's area is: " + '\033[1m' + 
-                      f'{triangle_area_rounded}')
+                      f'{triangle_area_rounded} {units_triangle} squared')
                 print(' ')
                 print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
                   f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
@@ -801,7 +864,7 @@ while desired_calculation != 5:     #as long as it isn't '6' it does this
             #within this loop, need to fix somehow..
 
 
-    elif desired_calculation == 4:        #Volume!          WORKS!! DONE
+    elif desired_calculation == 4:        #Volume!          WORKS!! DONE  W DICTIONARY APPEND ALSO DONE
         os.system('cls')
         #display/list of operations
         print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
@@ -837,10 +900,10 @@ while desired_calculation != 5:     #as long as it isn't '6' it does this
             #CUBOID                                                             
             if what_shape == 1:
                 os.system('cls')
-                cuboid_volume_rounded = calc_cuboid_volume()
-        
+                cuboid_volume_rounded, cubiod_num, units_cuboid = calc_cuboid_volume()
+                finalreport[f"Cuboid volume ({cubiod_num})"] = f"{cuboid_volume_rounded} {units_cuboid} cubed"
                 print(f'\033[0m' + "Your cuboid's volume is: "+'\033[1m'+
-                      f'{cuboid_volume_rounded}')
+                      f'{cuboid_volume_rounded} {units_cuboid} cubed')
                 print(' ')
                 print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
                   f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
@@ -852,10 +915,10 @@ while desired_calculation != 5:     #as long as it isn't '6' it does this
             #CUBE                           
             elif what_shape == 2:
                 os.system('cls')
-                cube_volume_rounded = calc_cube_volume()
-
+                cube_volume_rounded, cube_num, units_cube = calc_cube_volume()
+                finalreport[f"Cube volume ({cube_num})"] = f"{cube_volume_rounded} {units_cube} cubed"
                 print(f'\033[0m' + "Your cube's volume is: "+'\033[1m'+
-                      f'{cube_volume_rounded}')
+                      f'{cube_volume_rounded} {units_cube} cubed')
                 print(' ')
                 print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
                   f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
@@ -865,10 +928,10 @@ while desired_calculation != 5:     #as long as it isn't '6' it does this
             #CYLINDER    
             elif what_shape == 3:                                                   
                 os.system('cls')
-                cylinder_volume_rounded = calc_cylinder_volume()
-
+                cylinder_volume_rounded, cylinder_num, units_cylinder = calc_cylinder_volume()
+                finalreport[f"Cylinder volume ({cylinder_num})"] = f"{cylinder_volume_rounded} {units_cylinder} cubed"
                 print(f'\033[0m' + "Your cylinder's volume is: " + '\033[1m' +
-                      f'{cylinder_volume_rounded}')
+                      f'{cylinder_volume_rounded} {units_cylinder} cubed')
                 print(' ')
                 print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
                   f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
@@ -878,10 +941,10 @@ while desired_calculation != 5:     #as long as it isn't '6' it does this
             #CONE    
             elif what_shape == 4:              
                 os.system('cls')
-                cone_volume_rounded = calc_cone_volume()
-
+                cone_volume_rounded, cone_num, units_cone = calc_cone_volume()
+                finalreport[f"Cone volume ({cone_num})"] = f"{cone_volume_rounded} {units_cone} cubed"
                 print(f'\033[0m'+"Your cone's volume is: "+'\033[1m'+ 
-                      f'{cone_volume_rounded}')
+                      f'{cone_volume_rounded} {units_cone} cubed')
                 print(' ')
                 print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
                   f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
@@ -891,10 +954,10 @@ while desired_calculation != 5:     #as long as it isn't '6' it does this
             #SPHERE    
             elif what_shape == 5: 
                 os.system('cls')
-                sphere_volume_rounded = calc_sphere_volume()
-
+                sphere_volume_rounded, sphere_num, units_sphere = calc_sphere_volume()
+                finalreport[f"Sphere volume ({sphere_num})"] = f"{sphere_volume_rounded} {units_sphere} cubed"
                 print(f'\033[0m' + "Your sphere's volume is: " + '\033[1m' + 
-                      f'{sphere_volume_rounded}')
+                      f'{sphere_volume_rounded} {units_sphere} cubed')
                 print(' ')
                 print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
                   f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
@@ -910,4 +973,5 @@ while desired_calculation != 5:     #as long as it isn't '6' it does this
 
 while desired_calculation == 5: #EXIT works
     goodbye_exit_screen()
+    
     break
