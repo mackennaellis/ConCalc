@@ -219,19 +219,27 @@ def stud_length():
             f'\033[1m' + f'{FIRST_SHORTEST_stud_length}' + f" " + f"{units}" + 
             f'\033[0m' + ' long')
       print(' ')
-      continuee=input("Press ENTER to continue")
+      continuee=input(f"Press " + '\033[1m' + f"ENTER" + '\033[0m' 
+                      + f" to continue")
       os.system('cls')
       print(f'\n☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
             f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
       print(' ')
-      stud_space_running = float(input(f'What is the running stud spacing (the '
-                                    f'distance between each of the studs)? '))
+      stud_space_running = float(input(f"What is the running stud "
+                                             f"spacing (the "
+                                    f"distance from the very first "
+                                    f"stud at the lowest side of the wall "
+                                    f"to the stud you're currently "
+                                    f"calculating the length of)? "))
 
-      while stud_space_running < 0:
+      while stud_space_running < 1:
             invalid_negetive()
-            stud_space_running = float(input(f'What is the running stud spacing (the '
-                                    f'distance from the very first '
-                                    f'stud at the lowest side of the wall)? '))
+            stud_space_running = float(input(f"What is the running stud "
+                                             f"spacing (the "
+                                    f"distance from the very first "
+                                    f"stud at the lowest side of the wall "
+                                    f"to the stud you're currently "
+                                    f"calculating the length of)? "))
             
       print(' ')
       what_number_stud = int(input(f"What number stud along the bottom plate "
@@ -245,13 +253,19 @@ def stud_length():
                               f"(excluding the very first one on"
                               f" the outside edge, so the miniumum input here is "
                               f"'2') is the one you're calculating the height of? "))
-      
-      spacing_along_top_plate = stud_space_running / math.cos(wall_angle)
-      spacing_along_top_plate = round(spacing_along_top_plate, 3)
 
       print(' ')
       rise_of_stud = (math.tan(wall_angle*math.pi/180)*stud_space_running)
       rise_of_stud = round(rise_of_stud, 3)
+
+      spacing_along_top_plate = math.sqrt((stud_space_running**2) + (rise_of_stud**2))
+      spacing_along_top_plate = round(spacing_along_top_plate, 3)
+
+      calculated_stud_length = FIRST_SHORTEST_stud_length + rise_of_stud
+      calculated_stud_length = round(calculated_stud_length, 3)
+
+      overall_wall_height = calculated_stud_length + top_plate_thickness + plumb_cut
+      overall_wall_height =  round(overall_wall_height, 3)
 
       os.system('cls')
       print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
@@ -263,8 +277,6 @@ def stud_length():
             + f'\033[0m' + ' is: '   + '\033[1m' + f'{rise_of_stud}' + 
             f'\033[0m')
       print(' ')
-      calculated_stud_length = FIRST_SHORTEST_stud_length + rise_of_stud
-      calculated_stud_length = round(calculated_stud_length, 3)
 
       print(f'The stud length for stud number ' + '\033[1m' + f'{what_number_stud}'
             + f'\033[0m' + ' is: '  + '\033[1m' 
@@ -272,6 +284,10 @@ def stud_length():
       print(' ')
       print(f'This stud is ' + '\033[1m' + f'{spacing_along_top_plate}'
             + '\033[0m' + f' ' + f'{units}' + f' along the top plate')
+      print(' ')
+      print(f"And at this stud the overall (total) wall height "
+            f"is " + "\033[1m" + f"{overall_wall_height} {units} " 
+            + f"\033[0m" + f"tall")
       print(' ')
       print('And once again...')
       print(' ')
@@ -282,7 +298,7 @@ def stud_length():
             f'\033[1m' + f'{FIRST_SHORTEST_stud_length}' + f" " + f"{units}" + 
             f'\033[0m' + ' long')
       print(' ')
-      return calculated_stud_length, what_number_stud, units, spacing_along_top_plate
+      return calculated_stud_length, what_number_stud, units, spacing_along_top_plate, FIRST_SHORTEST_stud_length, overall_wall_height
 
 
 #desired_calculation = 3 ('what shape' calculation functions) TESTED AND WORK
@@ -683,14 +699,18 @@ def goodbye_exit_screen():
     print('  /　　　 　 |')
     print(' /　 ヽ　　 ﾉ')
     print('│　　| | |')
+    print(' ')
+    print(' ')
+    print('All of the calculation results you recieved are below!!')
+    print('---------------------------------------')
+    for operation in finalreport:
+      print(operation, 'is', finalreport[operation])             #rearrange/format and done
+      print(' ')
     print(f'\nThank you for using ConCalc!! Goodluck on your project/s and '
           f'return soon!')
     print(' ')
-    print('All of the calculation results you recieved are below!!')
-    for operation in finalreport:
-      print('The', operation, 'is', finalreport[operation])             #rearrange/format and done
+    
       
-    print(' ')
     print(f'★ ° . *　　　°　.　°☆ 　. * ● ¸ . 　　　★ 　° :. ★　 * • ○ ° ★ .　 '
           f'* 　.　. ° 　. ● . ★ ° . *　　　°　.　°☆')
 
@@ -738,8 +758,13 @@ while desired_calculation != 5:     #as long as it isn't '6' it does this
 
       os.system('cls')
       #  stud_result = stud_length()
-      calculated_stud_length, what_number_stud, units, spacing_along_top_plate = stud_length()
-      finalreport[f"Stud length ({what_number_stud})"] = f"{calculated_stud_length} {units}"
+      calculated_stud_length, what_number_stud, units, spacing_along_top_plate, FIRST_SHORTEST_stud_length, overall_wall_height = stud_length()
+      
+      finalreport["The very first stud length at the lowest point of the wall"] = f"{FIRST_SHORTEST_stud_length} {units} long"
+      
+      finalreport[f"Stud length ({what_number_stud})"] = f"{calculated_stud_length} {units} long"
+      
+      finalreport[f"Stud {what_number_stud} (above)"] = f"{spacing_along_top_plate} {units} along the top plate and at this point/stud the total wall height is {overall_wall_height} {units} tall"
       print('-----------------------------------------------------------------------')
       print(' ')
       print('Next options:')
@@ -747,17 +772,21 @@ while desired_calculation != 5:     #as long as it isn't '6' it does this
       print('1. Calulate another stud length (just like you did)')
       print('2. Back to main menu')
       print(' ')
-      another_calc = int(input("Would you like to complete another calculation? (input '1' or '2') "))
+      another_calc = int(input("Would you like to complete another "
+                               f"calculation? (input '1' or '2') "))
       while another_calc == 1:
             os.system('cls')
-            calculated_stud_length, what_number_stud, units, spacing_along_top_plate = stud_length()
-            finalreport[f"Stud length ({what_number_stud})"] = f"{calculated_stud_length} {units}"
-            finalreport[f"previous stud length"] = f"{spacing_along_top_plate} {units} along the top plate"  
+            calculated_stud_length, what_number_stud, units, spacing_along_top_plate, FIRST_SHORTEST_stud_length, overall_wall_height = stud_length()
+
+            finalreport[f"Stud length ({what_number_stud})"] = f"{calculated_stud_length} {units} long"
+
+            finalreport[f"Stud {what_number_stud} (above)"] = f"{spacing_along_top_plate} {units} along the top plate and at this point/stud the total wall height is {overall_wall_height} {units} tall"  ##
+            
             another_calc = another_calcc()
       if another_calc == 2:
             os.system('cls')
             desired_calculation = main_program_1st_display() #(1)
-      
+'''
     elif desired_calculation == 3:        #Area!          WORKS!! DONE  W DICTIONARY APPEND ALSO DONE
         os.system('cls')
         #display/list of operations
@@ -976,7 +1005,7 @@ while desired_calculation != 5:     #as long as it isn't '6' it does this
                   desired_calculation = main_program_1st_display() #(1)
                   break
             break
-
+'''
 
 while desired_calculation == 5: #EXIT works
     goodbye_exit_screen()
