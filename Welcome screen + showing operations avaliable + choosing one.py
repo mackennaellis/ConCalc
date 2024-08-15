@@ -245,7 +245,10 @@ def stud_length():
                               f"(excluding the very first one on"
                               f" the outside edge, so the miniumum input here is "
                               f"'2') is the one you're calculating the height of? "))
-            
+      
+      spacing_along_top_plate = stud_space_running / math.cos(wall_angle)
+      spacing_along_top_plate = round(spacing_along_top_plate, 3)
+
       print(' ')
       rise_of_stud = (math.tan(wall_angle*math.pi/180)*stud_space_running)
       rise_of_stud = round(rise_of_stud, 3)
@@ -266,7 +269,9 @@ def stud_length():
       print(f'The stud length for stud number ' + '\033[1m' + f'{what_number_stud}'
             + f'\033[0m' + ' is: '  + '\033[1m' 
             + f'{calculated_stud_length}'  + f" " + f"{units}" + '\033[0m')
-
+      print(' ')
+      print(f'This stud is ' + '\033[1m' + f'{spacing_along_top_plate}'
+            + '\033[0m' + f' ' + f'{units}' + f' along the top plate')
       print(' ')
       print('And once again...')
       print(' ')
@@ -277,7 +282,8 @@ def stud_length():
             f'\033[1m' + f'{FIRST_SHORTEST_stud_length}' + f" " + f"{units}" + 
             f'\033[0m' + ' long')
       print(' ')
-      return calculated_stud_length, what_number_stud, units
+      return calculated_stud_length, what_number_stud, units, spacing_along_top_plate
+
 
 #desired_calculation = 3 ('what shape' calculation functions) TESTED AND WORK
 def calc_rectangle_area():
@@ -732,7 +738,7 @@ while desired_calculation != 5:     #as long as it isn't '6' it does this
 
       os.system('cls')
       #  stud_result = stud_length()
-      calculated_stud_length, what_number_stud, units = stud_length()
+      calculated_stud_length, what_number_stud, units, spacing_along_top_plate = stud_length()
       finalreport[f"Stud length ({what_number_stud})"] = f"{calculated_stud_length} {units}"
       print('-----------------------------------------------------------------------')
       print(' ')
@@ -744,9 +750,9 @@ while desired_calculation != 5:     #as long as it isn't '6' it does this
       another_calc = int(input("Would you like to complete another calculation? (input '1' or '2') "))
       while another_calc == 1:
             os.system('cls')
-            calculated_stud_length, what_number_stud, units = stud_length()
+            calculated_stud_length, what_number_stud, units, spacing_along_top_plate = stud_length()
             finalreport[f"Stud length ({what_number_stud})"] = f"{calculated_stud_length} {units}"
-                  
+            finalreport[f"previous stud length"] = f"{spacing_along_top_plate} {units} along the top plate"  
             another_calc = another_calcc()
       if another_calc == 2:
             os.system('cls')
